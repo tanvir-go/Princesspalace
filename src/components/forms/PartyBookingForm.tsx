@@ -65,7 +65,7 @@ export function PartyBookingForm({ onSuccess, showPaymentDetails = true }: { onS
     setDue(calculatedDue > 0 ? calculatedDue : 0);
   }, [total, advance, discount]);
   
-  const restaurantPhoneNumber = "01646497530";
+  const restaurantPhoneNumber = "+8801646497530";
   const whatsappMessage = `Hello, I'd like to book the party center.
 Name: ${name}
 Phone: ${phone}
