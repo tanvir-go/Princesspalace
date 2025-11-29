@@ -65,7 +65,7 @@ export function Menu() {
                             const Icon = categoryIcons[category.title] || Utensils;
                             return (
                                 <TabsTrigger key={category.title} value={category.title} className="flex flex-col items-center justify-center gap-2 p-3 w-full h-24">
-                                    <Icon className="h-6 w-6" />
+                                    <Icon className="h-6 w-6 mx-auto" />
                                     <span className="text-xs text-center">{category.title}</span>
                                 </TabsTrigger>
                             )
