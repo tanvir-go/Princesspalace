@@ -1,0 +1,142 @@
+/**
+ * Core Philosophy: This ruleset enforces a "Public Read, Backend-Managed Write" model, designed for a public-facing restaurant website.
+ * The primary goal is to allow any visitor to read public information like menus, gallery images, and contact details, while strictly controlling
+ * data submission. Writes are either disallowed entirely or limited to specific creation events (like making a reservation or submitting a review),
+ * with the assumption that an administrator using the Firebase Admin SDK will manage and approve submitted content.
+ *
+ * Data Structure: The data is organized into five distinct, top-level collections (/menuItems, /reservations, /galleryImages, /customerReviews, /contactInfo).
+ * There are no user-specific subcollections, reflecting the app's lack of personalized user accounts. This flat structure simplifies security by ensuring
+ * each collection has a uniform and easily understood access policy.
+ *
+ * Key Security Decisions:
+ * - Public Read-Only Data: Collections like /menuItems, /galleryImages, and /contactInfo are publicly readable by anyone but cannot be modified by clients.
+ * - Write-Only "Drop Box": The /reservations collection acts as a write-only drop box. Anyone can create a reservation, but no one (including the creator)
+ *   can read, update, or delete reservations via the client. This protects customer privacy and centralizes reservation management on the backend.
+ * - Moderated Content: The /customerReviews collection allows public creation, but a rule enforces that all new reviews are created with `isApproved: false`.
+ *   This prevents users from self-publishing reviews, which must be approved by a backend process before they are publicly visible.
+ * - No Client-Side Deletes/Updates: To maintain data integrity and prevent unauthorized modifications, no client is permitted to perform update or delete
+ *   operations on any collection.
+ *
+ * Denormalization for Authorization: The security model relies on a single denormalized field, `isApproved`, within the `CustomerReview` documents. This
+ * allows for a simple and performant rule to moderate content submissions without needing complex lookups or backend calls during the write operation.
+ *
+ * Structural Segregation: Each collection serves a single purpose with a homogeneous security posture (e.g., all menu items are public, all reservations
+ * are private). This clear separation avoids mixing public and private data within the same collection, which is critical for secure and efficient
+ * list operations.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --------------------------------
+    // Helper Functions
+    // --------------------------------
+
+    /**
+     * Ensures a new customer review is being created in an unapproved state.
+     * This is a critical security check to prevent users from self-approving their own reviews.
+     */
+    function isCreatingUnapprovedReview() {
+      return request.resource.data.get('isApproved', false) == false;
+    }
+    
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+
+    // --------------------------------
+    // Collection Rules
+    // --------------------------------
+
+    /**
+     * @description Publicly readable menu data. Writes are disabled from the client.
+     * @path /menuItems/{menuItemId}
+     * @allow (get) Any user, signed in or not, can read a specific menu item.
+     * @deny (create) A user attempts to add a new menu item.
+     * @principle Public read-only access for informational content.
+     */
+    match /menuItems/{menuItemId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Allows any user to submit a reservation. Acts as a write-only "drop-box".
+     * @path /reservations/{reservationId}
+     * @allow (create) An anonymous user submits a new reservation document.
+     * @deny (get) A user attempts to read any reservation document, to protect privacy.
+     * @principle Secures private user-submitted data by disallowing all read and modification access from the client.
+     */
+    match /reservations/{reservationId} {
+      allow get: if false;
+      allow list: if false;
+      allow create: if true;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Publicly readable gallery images. Writes are disabled from the client.
+     * @path /galleryImages/{galleryImageId}
+     * @allow (list) Any user, signed in or not, can list all gallery images.
+     * @deny (update) A user attempts to change an image URL.
+     * @principle Public read-only access for informational content.
+     */
+    match /galleryImages/{galleryImageId} {
+      allow get: if true;
+      allow list: true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Allows public reading of reviews and submission of new, unapproved reviews.
+     * @path /customerReviews/{customerReviewId}
+     * @allow (create) A user creates a new review with `isApproved` set to `false`.
+     * @deny (create) A user attempts to create a review with `isApproved` set to `true`.
+     * @principle Enforces a content moderation workflow by validating a critical field on creation.
+     */
+    match /customerReviews/{customerReviewId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if isCreatingUnapprovedReview();
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Publicly readable restaurant contact information. Writes are disabled.
+     * @path /contactInfo/{contactInfoId}
+     * @allow (get) Any user can read the restaurant's contact info.
+     * @deny (delete) A user attempts to delete the contact information.
+     * @principle Public read-only access for informational content.
+     */
+    match /contactInfo/{contactInfoId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+     /**
+     * @description User profiles. Users can read their own profile, and create it.
+     * @path /users/{userId}
+     * @allow (get) An authenticated user can read their own profile.
+     * @allow (create) An authenticated user can create their own profile.
+     * @deny (list) No one can list all user profiles.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow create: if isOwner(userId);
+      allow list: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}

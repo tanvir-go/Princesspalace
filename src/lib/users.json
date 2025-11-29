@@ -1,0 +1,27 @@
+
+[
+  {
+    "email": "waiter@princesspalace.com",
+    "password": "waiter123",
+    "role": "waiter",
+    "displayName": "Waiter"
+  },
+  {
+    "email": "accounts@princesspalace.com",
+    "password": "accounts123",
+    "role": "accounts",
+    "displayName": "Accountant"
+  },
+  {
+    "email": "admin@princesspalace.com",
+    "password": "admin123",
+    "role": "admin",
+    "displayName": "Admin"
+  },
+  {
+    "email": "customer@princesspalace.com",
+    "password": "password",
+    "role": "customer",
+    "displayName": "Customer"
+  }
+]

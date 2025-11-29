@@ -1,0 +1,14 @@
+
+[
+    { "symbol": "kg", "name": "Kilogram" },
+    { "symbol": "g", "name": "Gram" },
+    { "symbol": "L", "name": "Liter" },
+    { "symbol": "mL", "name": "Milliliter" },
+    { "symbol": "pcs", "name": "Pieces" },
+    { "symbol": "dozen", "name": "Dozen" },
+    { "symbol": "box", "name": "Box" },
+    { "symbol": "bottle", "name": "Bottle" },
+    { "symbol": "can", "name": "Can" },
+    { "symbol": "bag", "name": "Bag" },
+    { "symbol": "unit", "name": "Unit" }
+]

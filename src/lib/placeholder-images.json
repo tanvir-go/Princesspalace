@@ -1,0 +1,82 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A dark, atmospheric shot of a steak being prepared on a grill.",
+      "imageUrl": "https://images.unsplash.com/photo-1648139496286-e260be91b2ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdGVhayUyMGdyaWxsfGVufDB8fHx8MTc2MzYxODM5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "steak grill"
+    },
+    {
+      "id": "about-section-image",
+      "description": "A well-lit photo of the restaurant's interior dining area.",
+      "imageUrl": "https://images.unsplash.com/photo-1613274554329-70f997f5789f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzYzNjEyMDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "restaurant interior"
+    },
+    {
+      "id": "menu-steak-1",
+      "description": "A perfectly cooked filet mignon on a white plate.",
+      "imageUrl": "https://images.unsplash.com/photo-1606419420761-4f2aa891ed19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmaWxldCUyMG1pZ25vbnxlbnwwfHx8fDE3NjM2NTQ3OTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "filet mignon"
+    },
+    {
+      "id": "menu-steak-2",
+      "description": "A juicy ribeye steak with a side of asparagus.",
+      "imageUrl": "https://images.unsplash.com/photo-1690983323544-026a23725551?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmliZXllJTIwc3RlYWt8ZW58MHx8fHwxNzYzNjE4MzgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ribeye steak"
+    },
+    {
+      "id": "menu-seafood-1",
+      "description": "Grilled salmon with lemon.",
+      "imageUrl": "https://images.unsplash.com/photo-1641898378716-1f38ec04bb0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncmlsbGVkJTIwc2FsbW9ufGVufDB8fHx8MTc2MzYxMTU0NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grilled salmon"
+    },
+    {
+      "id": "menu-dessert-1",
+      "description": "A rich chocolate lava cake.",
+      "imageUrl": "https://images.unsplash.com/photo-1602351447937-745cb720612f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaG9jb2xhdGUlMjBjYWtlfGVufDB8fHx8MTc2MzU4MTk5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chocolate cake"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Close-up of a sizzling steak on a plate.",
+      "imageUrl": "https://images.unsplash.com/photo-1763343146204-50aec9ab91ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzaXp6bGluZyUyMHN0ZWFrfGVufDB8fHx8MTc2MzY3MTg0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sizzling steak"
+    },
+    {
+      "id": "gallery-2",
+      "description": "A group of friends laughing and dining.",
+      "imageUrl": "https://images.unsplash.com/photo-1592411261931-a03edd69b423?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZW9wbGUlMjBkaW5pbmd8ZW58MHx8fHwxNzYzNjIwODU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "people dining"
+    },
+    {
+      "id": "gallery-3",
+      "description": "The elegant bar area with cocktails.",
+      "imageUrl": "https://images.unsplash.com/photo-1659626672810-b10f364b2c54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyZXN0YXVyYW50JTIwYmFyfGVufDB8fHx8MTc2MzY3MTg0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "restaurant bar"
+    },
+    {
+      "id": "gallery-4",
+      "description": "A chef plating a dish in the kitchen.",
+      "imageUrl": "https://images.unsplash.com/photo-1675092975393-7b7cd0c618fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaGVmJTIwcGxhdGluZ3xlbnwwfHx8fDE3NjM2MTk3OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chef plating"
+    },
+    {
+      "id": "gallery-5",
+      "description": "A romantic dinner setup for two.",
+      "imageUrl": "https://images.unsplash.com/photo-1615500025837-cf3a8716c83d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyb21hbnRpYyUyMGRpbm5lcnxlbnwwfHx8fDE3NjM2NDA2NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "romantic dinner"
+    },
+    {
+      "id": "gallery-6",
+      "description": "A vibrant salad dish.",
+      "imageUrl": "https://images.unsplash.com/photo-1654458804670-2f4f26ab3154?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmcmVzaCUyMHNhbGFkfGVufDB8fHx8MTc2MzY2Mjg4OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh salad"
+    },
+    {
+      "id": "contact-background",
+      "description": "A dimly lit view of the restaurant entrance at night.",
+      "imageUrl": "https://images.unsplash.com/photo-1761517394803-aab6df3f9095?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyZXN0YXVyYW50JTIwZW50cmFuY2V8ZW58MHx8fHwxNzYzNjcxODQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "restaurant entrance"
+    }
+  ]
+}

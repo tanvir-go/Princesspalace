@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%; /* off-white #FAF9F6 */
+    --foreground: 240 10% 3.9%;
+    --card: 40 33% 97%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 25 95% 53%; /* vibrant-orange */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 40 89% 51%; /* gold.500 for compatibility */
+    --secondary-foreground: 30 14% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 51 100% 50%; /* gold #FFD700 */
+    --accent-foreground: 240 10% 3.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 25 95% 53%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 5% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 25 95% 53%; /* Lighter orange for dark mode */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 40 89% 55%;
+    --secondary-foreground: 30 14% 10%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 51 100% 50%; /* gold #FFD700 */
+    --accent-foreground: 240 10% 3.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .liquid-wave:hover,
+  .liquid-wave[data-state=active] {
+    position: relative;
+    overflow: hidden;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+  }
+
+  .liquid-wave:hover::before,
+  .liquid-wave[data-state=active]::before,
+  .liquid-wave:hover::after,
+  .liquid-wave[data-state=active]::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: hsl(var(--primary));
+    animation: wave 4s linear infinite;
+  }
+
+  .liquid-wave:hover::before,
+  .liquid-wave[data-state=active]::before {
+    border-radius: 45%;
+    background: rgba(255, 165, 0, 1);
+    animation: wave 5s linear infinite;
+  }
+  
+  .liquid-wave:hover::after,
+  .liquid-wave[data-state=active]::after {
+    border-radius: 40%;
+    background: rgba(255, 165, 0, 0.5);
+    animation: wave 10s linear infinite;
+  }
+}

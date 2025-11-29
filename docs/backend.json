@@ -1,0 +1,319 @@
+{
+  "entities": {
+    "MenuItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "MenuItem",
+      "type": "object",
+      "description": "Represents a single item on the restaurant's menu.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the menu item."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the menu item."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the menu item."
+        },
+        "price": {
+          "type": "number",
+          "description": "Price of the menu item."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the image representing the menu item."
+        },
+        "category": {
+          "type": "string",
+          "description": "Category that the menu item belongs to (e.g., Appetizer, Main Course, Dessert)."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "price",
+        "imageUrl",
+        "category"
+      ]
+    },
+    "Reservation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Reservation",
+      "type": "object",
+      "description": "Represents a table reservation made by a customer.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the reservation."
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Name of the customer making the reservation."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of the customer making the reservation."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the customer making the reservation.",
+          "format": "email"
+        },
+        "reservationDate": {
+          "type": "string",
+          "description": "Date of the reservation.",
+          "format": "date-time"
+        },
+        "reservationTime": {
+          "type": "string",
+          "description": "Time of the reservation."
+        },
+        "partySize": {
+          "type": "number",
+          "description": "Number of people in the reservation party."
+        },
+        "specialRequests": {
+          "type": "string",
+          "description": "Any special requests made by the customer."
+        }
+      },
+      "required": [
+        "id",
+        "customerName",
+        "phoneNumber",
+        "email",
+        "reservationDate",
+        "reservationTime",
+        "partySize"
+      ]
+    },
+    "GalleryImage": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GalleryImage",
+      "type": "object",
+      "description": "Represents an image in the restaurant's gallery.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the gallery image."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the gallery image."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the gallery image."
+        }
+      },
+      "required": [
+        "id",
+        "imageUrl",
+        "description"
+      ]
+    },
+    "CustomerReview": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "CustomerReview",
+      "type": "object",
+      "description": "Represents a customer review of the restaurant.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the customer review."
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Name of the customer who wrote the review."
+        },
+        "rating": {
+          "type": "number",
+          "description": "Rating given by the customer (e.g., 1 to 5 stars)."
+        },
+        "comment": {
+          "type": "string",
+          "description": "Text of the customer review."
+        },
+        "datePosted": {
+          "type": "string",
+          "description": "Date when the review was posted.",
+          "format": "date-time"
+        },
+        "isApproved": {
+          "type": "boolean",
+          "description": "Indicates whether the review has been approved for display."
+        }
+      },
+      "required": [
+        "id",
+        "customerName",
+        "rating",
+        "comment",
+        "datePosted",
+        "isApproved"
+      ]
+    },
+    "ContactInfo": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactInfo",
+      "type": "object",
+      "description": "Represents the contact information for the restaurant.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact information."
+        },
+        "address": {
+          "type": "string",
+          "description": "Restaurant's street address."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Restaurant's phone number."
+        },
+        "email": {
+          "type": "string",
+          "description": "Restaurant's email address.",
+          "format": "email"
+        },
+        "businessHours": {
+          "type": "string",
+          "description": "Restaurant's business hours (e.g., 'Monday-Sunday: 11:00 AM - 10:00 PM')."
+        },
+        "mapEmbedUrl": {
+          "type": "string",
+          "description": "URL to embed the restaurant's location on a map."
+        }
+      },
+      "required": [
+        "id",
+        "address",
+        "phoneNumber",
+        "email",
+        "businessHours",
+        "mapEmbedUrl"
+      ]
+    },
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user's profile.",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique identifier for the user." },
+        "displayName": { "type": "string", "description": "The user's display name." },
+        "email": { "type": "string", "description": "The user's email address.", "format": "email" },
+        "role": { "type": "string", "description": "The user's role.", "enum": ["admin", "accounts", "waiter", "customer"] }
+      },
+      "required": ["uid", "displayName", "email", "role"]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/menuItems/{menuItemId}",
+        "definition": {
+          "entityName": "MenuItem",
+          "schema": {
+            "$ref": "#/backend/entities/MenuItem"
+          },
+          "description": "Stores menu items for the restaurant.  No denormalized authorization fields are required.",
+          "params": [
+            {
+              "name": "menuItemId",
+              "description": "Unique identifier for the menu item."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/reservations/{reservationId}",
+        "definition": {
+          "entityName": "Reservation",
+          "schema": {
+            "$ref": "#/backend/entities/Reservation"
+          },
+          "description": "Stores customer reservations. No denormalized authorization fields are required.",
+          "params": [
+            {
+              "name": "reservationId",
+              "description": "Unique identifier for the reservation."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/galleryImages/{galleryImageId}",
+        "definition": {
+          "entityName": "GalleryImage",
+          "schema": {
+            "$ref": "#/backend/entities/GalleryImage"
+          },
+          "description": "Stores images for the restaurant's gallery. No denormalized authorization fields are required.",
+          "params": [
+            {
+              "name": "galleryImageId",
+              "description": "Unique identifier for the gallery image."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/customerReviews/{customerReviewId}",
+        "definition": {
+          "entityName": "CustomerReview",
+          "schema": {
+            "$ref": "#/backend/entities/CustomerReview"
+          },
+          "description": "Stores customer reviews of the restaurant. Managed by a backend system to set `isApproved`. No denormalized authorization fields are required.",
+          "params": [
+            {
+              "name": "customerReviewId",
+              "description": "Unique identifier for the customer review."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/contactInfo/{contactInfoId}",
+        "definition": {
+          "entityName": "ContactInfo",
+          "schema": {
+            "$ref": "#/backend/entities/ContactInfo"
+          },
+          "description": "Stores contact information for the restaurant.  Only one document should exist. No denormalized authorization fields are required.",
+          "params": [
+            {
+              "name": "contactInfoId",
+              "description": "Unique identifier for the contact information document."
+            }
+          ]
+        }
+      },
+       {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": { "$ref": "#/backend/entities/User" },
+          "description": "Stores user profile information.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "Unique identifier for the user, corresponding to the Firebase Auth UID."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to mirror the SteakHouse Clone application's data requirements, focusing on simplicity, security, and scalability. The primary entities are Menu Items, Reservations, Gallery Images, Customer Reviews, and Contact Information.  \n\nAuthorization Independence (CRITICAL):  Since there's no explicit user authentication beyond anonymous access, and no collaborative data structures, complex authorization rules are not required. For customer reviews, an `isApproved` field managed by the restaurant (presumably via backend functions or admin UI) controls visibility. This avoids complex `get()` calls in security rules.  \n\nStructural Segregation (Homogeneous Security Posture): Each collection is dedicated to a single entity type (menu items, reservations, gallery images, reviews, contact info). This ensures a clear and consistent security posture for each collection. For example, customer reviews are stored in a dedicated `/customerReviews` collection, separated from any other data. \n\nAccess Modeling: Publicly accessible data (menu items, gallery images, contact information) resides in collections with read-only access for all users. Reservations, while writeable, do not contain sensitive information beyond customer contact details, and moderation is enforced through backend logic based on the 'isApproved' flag. No user-specific data is stored, simplifying access control.  \n\nQAPs (Rules are not Filters): The segregation strategy inherently supports secure `list` operations since each collection contains data with uniform access requirements.\n\nData Clarity and Predictability: Each entity has a defined schema with explicit fields like `isApproved` for state management in `CustomerReview`. This promotes maintainability and debuggability."
+  }
+}

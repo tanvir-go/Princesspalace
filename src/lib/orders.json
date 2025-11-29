@@ -1,0 +1,58 @@
+
+[
+    {
+      "id": "ord-123456",
+      "tableNumber": 5,
+      "status": "Kitchen Pending",
+      "items": [
+        { "name": "Chicken Lovers", "price": 750, "quantity": 1 },
+        { "name": "French Fries", "price": 200, "quantity": 2 }
+      ],
+      "total": 1150,
+      "createdAt": "2024-07-22T10:00:00Z"
+    },
+    {
+      "id": "ord-234567",
+      "tableNumber": 2,
+      "status": "Served",
+      "items": [
+        { "name": "Beef Burger", "price": 200, "quantity": 2 },
+        { "name": "Cold Coffee", "price": 150, "quantity": 2 }
+      ],
+      "total": 700,
+      "createdAt": "2024-07-22T09:45:00Z"
+    },
+    {
+      "id": "ord-345678",
+      "tableNumber": 8,
+      "status": "Ready to Pay",
+      "items": [
+        { "name": "Thali (A)", "price": 420, "quantity": 1 },
+        { "name": "Faluda", "price": 150, "quantity": 1 }
+      ],
+      "total": 570,
+      "createdAt": "2024-07-22T09:30:00Z"
+    },
+    {
+      "id": "ord-456789",
+      "tableNumber": 3,
+      "status": "Completed",
+      "items": [
+        { "name": "Set Menu (1)", "price": 300, "quantity": 2 }
+      ],
+      "total": 600,
+      "createdAt": "2024-07-21T18:30:00Z"
+    },
+    {
+        "id": "ord-567890",
+        "tableNumber": 1,
+        "status": "Kitchen Pending",
+        "items": [
+            { "name": "Italian Pasta (Chicken, Mushroom)", "price": 300, "quantity": 1 },
+            { "name": "Garlic Naan", "price": 50, "quantity": 2 }
+        ],
+        "total": 400,
+        "createdAt": "2024-07-22T10:05:00Z"
+    }
+  ]
+  
