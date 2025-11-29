@@ -4,7 +4,7 @@
 import Link from 'next/link';
 
 export function FloatingWhatsAppButton() {
-  const phoneNumber = '01646497530';
+  const phoneNumber = '+8801646497530';
   const message = "Hello, I'm interested in Princess Palace. Can you help me?";
   const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
 
