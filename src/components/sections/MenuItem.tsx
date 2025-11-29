@@ -66,7 +66,7 @@ export function MenuItem({ item }: MenuItemProps) {
     }
   };
   
-  const phoneNumber = "01646497530";
+  const phoneNumber = "+8801646497530";
   const whatsappMessage = `Hello, I'd like to order: ${item.name}${selectedSize ? ` (Size: ${selectedSize})` : ''}`;
   const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
