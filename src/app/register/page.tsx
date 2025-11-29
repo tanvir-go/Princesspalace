@@ -6,14 +6,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, Suspense } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/use-auth';
 import Image from 'next/image';
 import { useSearchParams, useRouter } from 'next/navigation';
 
 
-export default function RegisterPage() {
+function RegisterPageContent() {
     const { toast } = useToast();
     const { registerWithEmail, loading } = useAuth();
     const [displayName, setDisplayName] = useState('');
@@ -110,4 +110,11 @@ export default function RegisterPage() {
         </div>
         </div>
     );
+}
+export default function RegisterPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <RegisterPageContent />
+        </Suspense>
+    )
 }
